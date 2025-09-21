@@ -27,6 +27,7 @@ fn main() -> anyhow::Result<()> {
             .try_init()?;
     } else {
         trace.with(fmt::layer()).with(env_filter).try_init()?;
+    #[cfg(debug_assertions)]
         tracing::warn!("Failed to connect to journald")
     }
 
